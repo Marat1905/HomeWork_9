@@ -30,14 +30,15 @@ app.UseRouting();
 app.MapControllers();
 
 
-app.UseSpa(spa =>
+app.UseWhen(context => !context.Request.Path.StartsWithSegments("/api"), appBuilder =>
 {
-    spa.Options.SourcePath = "ClientApp";
-
-    if (app.Environment.IsDevelopment())
+    appBuilder.UseSpa(spa =>
     {
-        spa.UseProxyToSpaDevelopmentServer("http://localhost:5173");
-    }
+        spa.Options.SourcePath = "ClientApp";
+        if (app.Environment.IsDevelopment())
+        {
+            spa.UseProxyToSpaDevelopmentServer("http://localhost:5173");
+        }
+    });
 });
-
 app.Run();
