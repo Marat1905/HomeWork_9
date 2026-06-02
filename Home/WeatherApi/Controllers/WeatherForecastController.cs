@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using MySingleHostApp;
 
 namespace WeatherApi.Controllers
 {
