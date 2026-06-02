@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using MySingleHostApp;
 
-namespace MySingleHostApp.Controllers
+namespace WeatherApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
